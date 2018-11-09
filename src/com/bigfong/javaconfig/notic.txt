@@ -1,0 +1,2 @@
+1.WebContent/WEB-INF下无需配置web.xl
+2.resources中，只有db.properties文件，无需配置mvc.xml
