@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- IOC注解解析器：组件扫描 -->
+	<context:component-scan base-package="com.bigfong.helloanno"/>
+	<!--mv注解解析器(DI注解解析器)，注入 
+		会自动去注册RequestMappingHandlerMapping,RequestMappingHandlerAdapter,ExceptionHandlerExceptionResolver三个bean
+			除此之外，SpringMVC几乎所有的注解都需要该解析器来解析，
+			支持类型转换ConversionService,
+			NumberFomat,
+			DataTimeFormate注解，
+			Validate JSR303校验
+			@RequestBody ....
+	-->
+	<mvc:annotation-driven/>
+	
+	<!-- 处理静态资源文件请求 -->
+	<!-- 方式一 
+		将静态资源交回给Servlet来处理
+	-->
+	<mvc:default-servlet-handler/>
+	<!-- 方式二：资源映射 
+		SpringMVC自己来处理静态资源，而且还附带了很多功能
+	-->
+	<!-- <mvc:resources location="/" mapping="/**"/> -->
+</beans>	
